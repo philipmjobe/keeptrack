@@ -17,6 +17,10 @@ function ProjectCard(props) {
         </h5>
         <p>{formatDescription(project.description)}</p>
         <p>Budget : {project.budget.toLocaleString()}</p>
+        <button className="bordered">
+          <span className="icon-edit"></span>
+          Edit
+        </button>
       </section>
     </div>
   );
