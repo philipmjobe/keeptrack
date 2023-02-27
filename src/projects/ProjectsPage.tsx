@@ -10,6 +10,9 @@ function ProjectsPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | undefined>(undefined)
   const [currentPage, setCurrentPage] = useState(1)
+  const handleMoreClick = () => {
+    setCurrentPage((currentPage) => currentPage + 1)
+  }
   useEffect(() => {
       async function loadProjects() {
         setLoading(true);
@@ -56,6 +59,18 @@ function ProjectsPage() {
      <ProjectList
      onSave={saveProject}
      projects={projects} />
+
+{!loading && !error && (
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="button-group fluid">
+              <button className="button default" onClick={handleMoreClick}>
+                More...
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
      {loading && (
       <div className="center-page">
